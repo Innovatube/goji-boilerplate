@@ -1,0 +1,18 @@
+# http server
+port: ":8080"
+
+# database
+storage:
+ username: "root"
+ password: ""
+ url: "test"
+
+# static folder
+staticFolder: "public"
+
+# logging
+systemLog:
+ level: "debug"
+ destination: "file"
+ path: "boilerplate.log"
+ logAppend: "true"

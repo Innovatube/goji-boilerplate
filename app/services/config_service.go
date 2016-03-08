@@ -1,7 +1,7 @@
 package services
 
 import (
-	"os"
+	"fmt"
 
 	"github.com/tsuru/config"
 )
@@ -14,12 +14,29 @@ func ConfigService() *configService {
 }
 
 func (this *configService) LoadConfigFile(path string) {
-	err := config.ReadConfigFile(os.Args[1])
+	defer func() {
+		if i := recover(); i != nil {
+			fmt.Println("Error loading file config : ", i)
+		}
+	}()
+	err := config.ReadConfigFile(path)
 	if err != nil {
 		panic(err)
 	}
 }
 
-func (this *configService) GetConfig(key string, defaultValue string) {
+func (this *configService) GetServerPort() string {
+	value, err := config.GetString("port")
+	if err == nil {
+		return value
+	}
+	return ":8000"
+}
 
+func (this *configService) GetStaticFolder() string {
+	value, err := config.GetString("staticFolder")
+	if err == nil {
+		return value
+	}
+	return "public"
 }
