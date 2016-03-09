@@ -10,7 +10,7 @@ import (
 func UserRoutes() {
 
 	userMux := web.New()
-	goji.Handle("/*", userMux)
-	userMux.Get("/", user_controller.Index_get_handler)
-
+	goji.Handle("/user/*", userMux)
+	userMux.Get("/user/", user_controller.Index_get_handler)
+	homeMux.Get("/user", user_controller.Index_get_handler)
 }

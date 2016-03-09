@@ -1,11 +1,8 @@
 package routes
 
-import (
-)
-
 func Routes() {
+	//	HomeRoutes()
 	APIV1Routes()
 	AdminRoutes()
 	UserRoutes()
 }
-
