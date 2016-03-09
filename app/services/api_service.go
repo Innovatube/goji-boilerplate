@@ -1,9 +1,10 @@
 package services
 
 import (
+	"net/http"
+
 	"github.com/ugorji/go/codec"
 	"github.com/zenazn/goji/web"
-	"net/http"
 )
 
 type api struct {
@@ -14,7 +15,6 @@ func Api() *api {
 }
 
 func (api *api) GenerateResponse(c web.C, r *http.Request, w http.ResponseWriter, data interface{}) {
-
 	if r.Header.Get("Accept") == "application/x-msgpack" {
 		w.Header().Set("Content-Type", "application/x-msgpack")
 		h := new(codec.MsgpackHandle)
