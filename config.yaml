@@ -13,6 +13,5 @@ staticFolder: "public"
 # logging
 systemLog:
  level: "debug"
- destination: "file"
  path: "boilerplate.log"
  logAppend: "true"

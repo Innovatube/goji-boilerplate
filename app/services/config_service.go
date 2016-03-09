@@ -25,18 +25,10 @@ func (this *configService) LoadConfigFile(path string) {
 	}
 }
 
-func (this *configService) GetServerPort() string {
-	value, err := config.GetString("port")
-	if err == nil {
-		return value
+func (this *configService) GetConfig(key string, defaultValue string) string {
+	value, err := config.GetString(key)
+	if err != nil {
+		return defaultValue
 	}
-	return ":8000"
-}
-
-func (this *configService) GetStaticFolder() string {
-	value, err := config.GetString("staticFolder")
-	if err == nil {
-		return value
-	}
-	return "public"
+	return value
 }
