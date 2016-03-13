@@ -1,5 +1,5 @@
 # http server
-port: ":8080"
+port: ":8000"
 
 # database
 storage:
@@ -8,7 +8,7 @@ storage:
  url: "test"
 
 # static folder
-staticFolder: "public"
+staticFolder: "app/public"
 
 # logging
 systemLog:
